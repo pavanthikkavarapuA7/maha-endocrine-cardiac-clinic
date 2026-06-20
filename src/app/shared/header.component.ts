@@ -23,7 +23,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             </ul>
           </nav>
           <div class="contact-info">
-            <a href="tel:+918125609966" class="phone-btn">📞 +91 9550 899 143</a>
+            <a href="tel:+918125609966" class="phone-btn">📞 +91 8125609966</a>
           </div>
         </div>
       </div>

@@ -126,7 +126,7 @@ export class DataService {
   getContactInfo(): ContactInfo {
     return {
       address: 'JCWV+29C Tirupati, Andhra Pradesh',
-      phone: '+91 9550 899 143',
+      phone: '+91 8125609966',
       email: 'drlikitha1989@gmail.com',
       hours: 'Monday - Saturday: 9:00 AM - 6:00 PM'
     };
