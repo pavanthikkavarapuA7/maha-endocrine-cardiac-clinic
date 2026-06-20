@@ -1,6 +1,6 @@
 {
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist_public" } }
+    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist_public/browser" } }
   ],
   "routes": []
 }
