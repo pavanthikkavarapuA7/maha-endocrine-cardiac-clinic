@@ -1,9 +1,9 @@
 {
   "routes": {
-    "/": {},
-    "/about": {},
-    "/appointment": {},
-    "/contact": {},
-    "/services": {}
+    "/maha-endocrine-cardiac-clinic": {},
+    "/maha-endocrine-cardiac-clinic/about": {},
+    "/maha-endocrine-cardiac-clinic/appointment": {},
+    "/maha-endocrine-cardiac-clinic/contact": {},
+    "/maha-endocrine-cardiac-clinic/services": {}
   }
 }

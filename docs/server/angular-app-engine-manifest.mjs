@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/',
+  basePath: '/maha-endocrine-cardiac-clinic',
   allowedHosts: [],
   supportedLocales: {
   "en-US": ""

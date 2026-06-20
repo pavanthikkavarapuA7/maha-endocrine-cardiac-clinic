@@ -25,35 +25,33 @@ import { Doctor } from '../models/clinic.model';
             <p>We provide world class comprehensive one stop solution to all hormone related problems. This is your only destination for all diabetes, thyroid, PCOD, growth and all hormone related problems.</p>
           </div>
 
-          <div class="doctor-profile">
-            <div class="doctor-image">
-              <img src="https://via.placeholder.com/300x400?text=Dr+Likitha+B" alt="Dr. Likitha B">
-            </div>
-            <div class="doctor-details" *ngIf="doctor">
-              <h2>{{ doctor?.name }}</h2>
-              <p class="title">{{ doctor?.title }}</p>
-              <p class="experience">{{ doctor?.experience }} of Experience</p>
-              
-              <div class="bio-section">
-                <p>{{ doctor?.bio }}</p>
+          <div class="doctor-profiles" *ngIf="doctors.length">
+            <div class="doctor-profile" *ngFor="let doc of doctors">
+              <div class="doctor-image">
+                <img [src]="doc.image" [alt]="doc.name">
               </div>
+              <div class="doctor-details">
+                <h2>{{ doc.name }}</h2>
+                <p class="title">{{ doc.title }}</p>
+                <p class="experience">{{ doc.experience }} of Experience</p>
+                
+                <div class="bio-section">
+                  <p>{{ doc.bio }}</p>
+                </div>
 
-              <div class="achievements">
-                <h3>Achievements & Credentials</h3>
-                <ul>
-                  <li>Trained at premier endocrinology institutes in India</li>
-                  <li>Worked under reputed endocrinologists</li>
-                  <li>Multiple gold medals in the field of endocrinology</li>
-                  <li>Regular speaker at international conferences</li>
-                  <li>Conducted free diabetes and thyroid camps for rural communities</li>
-                </ul>
-              </div>
+                <div class="achievements" *ngIf="doc.achievements?.length">
+                  <h3>Achievements & Credentials</h3>
+                  <ul>
+                    <li *ngFor="let achievement of doc.achievements">{{ achievement }}</li>
+                  </ul>
+                </div>
 
-              <div class="specialties">
-                <h3>Areas of Specialization</h3>
-                <ul>
-                  <li *ngFor="let specialty of doctor?.specialties || []">✓ {{ specialty }}</li>
-                </ul>
+                <div class="specialties">
+                  <h3>Areas of Specialization</h3>
+                  <ul>
+                    <li *ngFor="let specialty of doc.specialties">✓ {{ specialty }}</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -107,7 +105,7 @@ import { Doctor } from '../models/clinic.model';
 
       <section class="why-choose">
         <div class="container">
-          <h2>Why Choose Hormone Clinic?</h2>
+          <h2>Why Choose Maha Endocrine & Cardiac Clinic?</h2>
           <div class="reasons-grid">
             <div class="reason-card">
               <div class="reason-icon">🏥</div>
@@ -191,6 +189,11 @@ import { Doctor } from '../models/clinic.model';
       color: #7f8c8d;
       line-height: 1.8;
       margin-bottom: 1rem;
+    }
+
+    .doctor-profiles {
+      display: grid;
+      gap: 3rem;
     }
 
     .doctor-profile {
@@ -402,11 +405,11 @@ import { Doctor } from '../models/clinic.model';
   `]
 })
 export class AboutComponent implements OnInit {
-  doctor: Doctor | undefined;
+  doctors: Doctor[] = [];
 
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.doctor = this.dataService.getDoctor();
+    this.doctors = this.dataService.getDoctors();
   }
 }

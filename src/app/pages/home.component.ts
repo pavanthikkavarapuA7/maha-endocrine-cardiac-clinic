@@ -21,7 +21,7 @@ import { Department, Clinic, Doctor } from '../models/clinic.model';
       <!-- Stats Section -->
       <section class="stats">
         <div class="container">
-          <h2>Why Choose Hormone Clinic?</h2>
+          <h2>Why Choose Maha Endocrine & Cardiac Clinic?</h2>
           <div class="stats-grid">
             <div *ngFor="let stat of stats" class="stat-card">
               <h3>{{ stat.value }}</h3>
@@ -45,23 +45,26 @@ import { Department, Clinic, Doctor } from '../models/clinic.model';
         </div>
       </section>
 
-      <!-- About Doctor Section -->
-      <section class="doctor-section" *ngIf="doctor">
+      <!-- Doctors Section -->
+      <section class="doctor-section" *ngIf="doctors.length">
         <div class="container">
-          <div class="doctor-content">
-            <div class="doctor-image">
-              <img src="https://via.placeholder.com/300x400?text=Dr+Likitha+B" alt="Dr. Likitha B">
-            </div>
-            <div class="doctor-info">
-              <h2>{{ doctor?.name }}</h2>
-              <p class="title">{{ doctor?.title }}</p>
-              <p class="experience">{{ doctor?.experience }} of Experience</p>
-              <p class="bio">{{ doctor?.bio }}</p>
-              <div class="specialties">
-                <h4>Specialties:</h4>
-                <ul>
-                  <li *ngFor="let specialty of doctor?.specialties || []">✓ {{ specialty }}</li>
-                </ul>
+          <h2>Our Doctors</h2>
+          <div class="doctor-grid">
+            <div class="doctor-card" *ngFor="let doc of doctors">
+              <div class="doctor-image">
+                <img [src]="doc.image" [alt]="doc.name">
+              </div>
+              <div class="doctor-info">
+                <h2>{{ doc.name }}</h2>
+                <p class="title">{{ doc.title }}</p>
+                <p class="experience">{{ doc.experience }} of Experience</p>
+                <p class="bio">{{ doc.bio }}</p>
+                <div class="specialties">
+                  <h4>Specialties:</h4>
+                  <ul>
+                    <li *ngFor="let specialty of doc.specialties">✓ {{ specialty }}</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -235,10 +238,32 @@ import { Department, Clinic, Doctor } from '../models/clinic.model';
       align-items: center;
     }
 
-    .doctor-image img {
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .doctor-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .doctor-card .doctor-image img {
       width: 100%;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .doctor-info h2 {
+      color: #2c3e50;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
     }
 
     .doctor-info h2 {
@@ -379,7 +404,7 @@ import { Department, Clinic, Doctor } from '../models/clinic.model';
 export class HomeComponent implements OnInit {
   departments: Department[] = [];
   clinics: Clinic[] = [];
-  doctor: Doctor | undefined;
+  doctors: Doctor[] = [];
   stats: any[] = [];
 
   constructor(private dataService: DataService) {}
@@ -387,7 +412,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.departments = this.dataService.getDepartments();
     this.clinics = this.dataService.getSpecializedClinics();
-    this.doctor = this.dataService.getDoctor();
+    this.doctors = this.dataService.getDoctors();
     this.stats = this.dataService.getClinicStats();
   }
 

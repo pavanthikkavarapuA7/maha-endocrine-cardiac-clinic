@@ -94,16 +94,33 @@ export class DataService {
     ];
   }
 
+  getDoctors(): Doctor[] {
+    return [
+      {
+        id: '1',
+        name: 'Dr. Likhitha Reddy',
+        title: 'MD General Medicine, DM Endocrinology',
+        bio: 'Dr. Likhitha Reddy is a dedicated and highly qualified Endocrinologist, currently serving as a Consultant at Aster Narayanadri Hospital, Tirupati. With a strong academic foundation and a passion for holistic endocrine care, she brings both clinical excellence and a deep sense of empathy to her practice. Dr. Likhitha completed her MBBS from Government Siddhartha Medical College, followed by an MD in Internal Medicine from Andhra Medical College, Visakhapatnam. She went on to pursue a DM in Endocrinology from SVIMS, Tirupati — a premier institution known for advanced training in hormonal and metabolic disorders. Her journey also includes academic service as an Assistant Professor of Endocrinology, where she contributed to both medical education and research. Her patient-first philosophy, calm demeanor, and dedication to long-term health outcomes make her a trusted partner in managing complex endocrine conditions.',
+        image: 'assets/images/Dr.Likitha.jpeg',
+        experience: '10+ years',
+        specialties: ['Diabetes & Metabolism', 'Diabetes Reversal & Lifestyle Medicine', 'Obesity & Metabolic Syndrome', 'Thyroid Disorders', 'Pituitary Disorders', 'Adrenal Disorders', 'Reproductive Endocrinology', 'Osteoporosis & Osteopenia', 'Lipid Disorders', 'Pediatric & Genetic Endocrine Disorders'],
+        achievements: ['Consultant Endocrinologist at Aster Narayanadri Hospital, Tirupati', 'MBBS from Government Siddhartha Medical College', 'MD in Internal Medicine from Andhra Medical College, Visakhapatnam', 'DM in Endocrinology from SVIMS, Tirupati', 'Former Assistant Professor of Endocrinology', 'Focus on Diabetes Reversal, Lifestyle Medicine, and Metabolic Health Transformation']
+      },
+      {
+        id: '2',
+        name: 'Dr. Palem Sumanth Reddy',
+        title: 'MD, DM Cardiology',
+        bio: 'Dr. Palem Sumanth Reddy (MD, DM Cardiology) is a consultant Interventional Cardiologist at Narayanadri Hospitals and Research Institute, Tirupati. He completed MBBS from 2005 to 2011 at Kurnool Medical College, Kurnool; MD in General Medicine from SVIMS, Tirupati from 2013 to 2016; and DM in Cardiology from SVIMS from 2016 to 2019. From August 2019 to August 2020, he served as Assistant Professor of Cardiology at SVIMS.',
+        image: 'assets/images/Dr.Sumanth.jpeg',
+        experience: '18+ years',
+        specialties: ['Coronary Angiogram', 'Coronary Angioplasty', 'IVUS', 'FFR', 'Intra-aortic balloon pump insertion', 'Pacemaker and ICD implantation', 'Diagnostic cardiac catheterization', 'Balloon mitral and pulmonary valvuloplasty', 'ASD and PDA device closure', 'Pericardiocentesis', 'Peripheral angiogram & angioplasty', 'Embolization'],
+        achievements: ['Gold medal in MD Medicine, 2016', 'Best oral paper presentation at APICON 2015', 'Best oral poster presentation at CSICON 2018', 'Published article in IOSR Journal of Medical Sciences on balloon mitral valvuloplasty and left ventricular performance']
+      }
+    ];
+  }
+
   getDoctor(): Doctor {
-    return {
-      id: '1',
-      name: 'Dr. Likitha B',
-      title: 'MD General Medicine, DM Endocrinology',
-      bio: 'Dr. Likitha B is a well-known name in the field of endocrinology. She is trained in one of the best institutes in India and has over 10 years of experience in treating all types of diabetes patients and complex hormonal problems. She has earned many gold medals and delivered lectures across India.',
-      image: 'assets/images/doctor.jpg',
-      experience: '10+ years',
-      specialties: ['Diabetes Management', 'Thyroid Disorders', 'Endocrine Surgery', 'Hormone Therapy']
-    };
+    return this.getDoctors()[0];
   }
 
   getContactInfo(): ContactInfo {

@@ -21,6 +21,7 @@ export interface Doctor {
   image: string;
   experience: string;
   specialties: string[];
+  achievements?: string[];
 }
 
 export interface Appointment {

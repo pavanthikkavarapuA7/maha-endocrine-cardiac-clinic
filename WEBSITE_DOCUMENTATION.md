@@ -1,4 +1,4 @@
-# Dr. Padmanabha Varma's Hormone Clinic Website
+# Dr. Padmanabha Varma's Maha Endocrine & Cardiac Clinic Website
 
 ## Project Overview
 A fully functional Angular website for an endocrinology clinic, built based on the reference website https://www.drpadmanabhavarma.com/
