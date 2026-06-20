@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output public",
+    "build": "ng build --configuration production --output-path dist_public --output-mode static --ssr false --base-href /",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:maha-endocrine-cardiac-clinic": "node dist/maha-endocrine-cardiac-clinic/server/server.mjs",
